@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class UnitConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Welcome to Unit Converter!");
+        
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("\nSelect an option:");
+            System.out.println("1. Kilometers to Meters");
+            System.out.println("2. Liters to Milliliters");
+            System.out.println("3. Inches to Centimeters");  
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    kilometersToMeters(scanner);
+                    break;
+                case 2:
+                    litersToMilliliters(scanner);
+                    break;
+                case 3:
+                    inchesToCentimeters(scanner);
+                    break;             
+                case 0:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice! Please try again.");
+            }
+        }
+        
+        System.out.println("Thank you for using Unit Converter!");
+        scanner.close();
+    }
+    
+    private static void kilometersToMeters(Scanner scanner) {
+        System.out.print("Enter distance in kilometers: ");
+        double kilometers = scanner.nextDouble();
+        double meters = kilometers * 1000;
+        System.out.println(kilometers + " kilometers = " + meters + " meters");
+    }
+    
+    private static void litersToMilliliters(Scanner scanner) {
+        System.out.print("Enter volume in liters: ");
+        double liters = scanner.nextDouble();
+        double milliliters = liters * 1000;
+        System.out.println(liters + " liters = " + milliliters + " milliliters");
+    }
+    
+    private static void inchesToCentimeters(Scanner scanner) {
+        System.out.print("Enter length in inches: ");
+        double inches = scanner.nextDouble();
+        double centimeters = inches * 2.54;
+        System.out.println(inches + " inches = " + centimeters + " centimeters");
+    }
+}
